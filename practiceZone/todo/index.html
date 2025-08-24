@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Todo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-tasks"></i> Ultimate Todo App</h1>
+        <div class="app-controls">
+          <div class="export-import">
+            <button class="export-btn" id="exportBtn">
+              <i class="fas fa-file-export"></i> Export
+            </button>
+            <button class="import-btn" id="importBtn">
+              <i class="fas fa-file-import"></i> Import
+            </button>
+          </div>
+          <button class="clear-all-btn" id="clearAllBtn" disabled>
+            Clear All
+          </button>
+          <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+      </header>
+
+      <div class="add-task-container">
+        <div class="task-form">
+          <input
+            type="text"
+            class="task-input"
+            id="taskInput"
+            placeholder="Add a new task..."
+          />
+          <select class="category-select" id="categorySelect">
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="study">Study</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="date" class="due-date-input" id="dueDateInput" />
+          <button class="add-btn" id="addTaskBtn">Add Task</button>
+        </div>
+        <div class="error-message" id="errorMessage">Task cannot be empty!</div>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-value" id="totalTasks">0</span>
+          <span class="stat-label">Total Tasks</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="completedTasks">0</span>
+          <span class="stat-label">Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="pendingTasks">0</span>
+          <span class="stat-label">Pending</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="overdueTasks">0</span>
+          <span class="stat-label">Overdue</span>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          id="searchInput"
+          placeholder="Search tasks..."
+        />
+      </div>
+
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All Tasks</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="personal">Personal</button>
+        <button class="filter-btn" data-filter="work">Work</button>
+        <button class="filter-btn" data-filter="study">Study</button>
+        <button class="filter-btn" data-filter="overdue">Overdue</button>
+        <button class="completed-tasks-btn" id="toggleCompletedBtn">
+          Hide Completed
+        </button>
+      </div>
+
+      <div class="sort-container">
+        <select class="sort-select" id="sortSelect">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="dueDate">Due Date</option>
+          <option value="priority">Priority</option>
+          <option value="alphabetical">Alphabetical</option>
+        </select>
+      </div>
+
+      <div class="tasks-container">
+        <ul class="task-list" id="taskList">
+          <li class="empty-state" id="emptyState">
+            No tasks yet. Add a task to get started!
+          </li>
+          <!-- Tasks will be added here dynamically -->
+        </ul>
+      </div>
+
+      <div class="pagination-container">
+        <button class="pagination-btn" id="prevPageBtn" disabled>
+          Previous
+        </button>
+        <span class="page-info" id="pageInfo">Page 1 of 1</span>
+        <button class="pagination-btn" id="nextPageBtn" disabled>Next</button>
+      </div>
+    </div>
+
+    <div class="notification" id="notification">Task added successfully!</div>
+
+    <div class="modal" id="clearAllModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Clear All Tasks</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Are you sure you want to delete all tasks? This action cannot be
+            undone.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn cancel" id="cancelClearBtn">Cancel</button>
+          <button class="modal-btn confirm" id="confirmClearBtn">
+            Clear All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <input
+      type="file"
+      id="importFileInput"
+      style="display: none"
+      accept=".json"
+    />
+
+    <script src="script.js"></script>
+  </body>
+</html>

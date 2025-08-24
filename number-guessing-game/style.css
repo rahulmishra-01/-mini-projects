@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+.container{
+    border: 1px solid black;
+    max-width: 450px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+}
+.inputSection{
+    display: flex;
+}
+.result{
+    padding: 5px;
+}
+.result.high{
+    background: rgb(177, 5, 5);
+}
+.result.low{
+    background: rgb(216, 216, 4);
+}
+.result.correct{
+    background: green;
+}

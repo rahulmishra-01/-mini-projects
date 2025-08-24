@@ -1,0 +1,54 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  border: 1px solid black;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="text"]{
+  flex: 1;
+}
+
+input[type="text"],button{
+  height: 100%;
+  padding: 0 12px;
+}
+
+input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.inputSectionContainer{
+  border: 1px solid black;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.taskSectionContainer{
+  border: 1px solid black;
+}
+.taskSectionContainer .taskSection{
+  border: 1px solid black;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.taskSection .checkbox{
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
